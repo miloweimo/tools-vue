@@ -1,19 +1,15 @@
 <template>
-  <div class="home">
-    <button>
-      <router-link to="/wdnmd">wdnmd</router-link>
-    </button>
-    <Button />
-  </div>
+  <hello-world />
 </template>
 
 <script>
-import { Button } from '../components/basic/Button'
+  import HelloWorld from '../components/HelloWorld'
 
-export default {
-  name: 'HomeView',
-  components: {
-    Button,
+  export default {
+    name: 'HomeView',
+
+    components: {
+      HelloWorld,
+    },
   }
-}
 </script>
