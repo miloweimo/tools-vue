@@ -21,8 +21,9 @@ const routes = [
   {
     path: '/scanqrcode',
     name: 'scanqrcode',
+    text: '扫描二维码',
     icon: 'mdi-data-matrix-scan',
-    component: () => import(/* webpackChunkName: "scanqrcode" */ '../views/HelloWDNMD.vue')
+    component: () => import(/* webpackChunkName: "scanqrcode" */ '../views/ScanQRCode.vue')
   },
   {
     path: '/wdnmd',

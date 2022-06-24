@@ -2,17 +2,22 @@
   <div>
     <div class="d-flex flex-wrap justify-space-around">
 
+      <div class="hide" v-if="!this.$vuetify.theme.dark"></div>
+      <div v-else class="hide" style="box-shadow: inset 0 0 0 100vh rgba(0, 0, 0, 0.6)"></div>
+
       <template v-for="(value, key ) in routes">
-        <v-card :key="key" v-if="key !== 0
+        <v-card :key="key" v-if="
+          key !== 0
           && value.path !== '*'
           && value.path !== '/404'
-        " class="pa-2 mt-8" height="50px" width="calc(30%)">
+        " class="pa-2 mt-8" height="65px" width="calc(30%)">
           <router-link :to="value.path">
             <button style="width: 100%; height: 100%;">
               <v-icon>
                 {{ value.icon || "😅" }}
               </v-icon>
-              {{ value.name }}
+              <br>
+              {{ value.text || value.name }}
             </button>
           </router-link>
         </v-card>
@@ -95,3 +100,17 @@ export default {
   },
 }
 </script>
+
+<style>
+.hide {
+  /* z-index: -1; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-image: url(https://static.v2ex.com/tiles/cake.jpg), url(https://v2ex.com/static/img/shadow.png);
+  background-repeat: repeat, repeat-x;
+  box-shadow: inset 0 0 0 100vh rgba(255, 255, 255, 0.28);
+  filter: blur(2px);
+}
+</style>
