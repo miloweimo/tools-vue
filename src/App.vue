@@ -1,31 +1,7 @@
 <template>
   <v-app>
-    <div class="hide" @dblclick.stop="showDrawer = !showDrawer"></div>
-
-    <v-card v-if="showDrawer" scrollable class="d-flex flex-wrap justify-space-around pa-2">
-      <v-card v-for="n in 21" :key="n" class="pa-2 ma-2" height="13vh" width="calc(30%)">
-        Column{{ n }}
-      </v-card>
-    </v-card>
-
-    <!-- 滚动失效 -->
-    <!-- 
-    <div v-if="showDrawer">
-      <v-navigation-drawer class="ma-8 pa-1 rounded" v-model="showDrawer" floating width="100% - ma-8"
-        height="100% - ma-8">
-        <v-row no-gutters>
-          <template v-for="n in 21">
-            <v-col :key="n" cols="4" class="pa-2">
-              <v-card class="pa-2" height="14vh">
-                Column{{ n }}
-              </v-card>
-            </v-col>
-          </template>
-        </v-row>
-      </v-navigation-drawer>
-    </div> -->
-
-    <v-main v-show="!showDrawer">
+    <div class="hide"></div>
+    <v-main>
       <router-view />
     </v-main>
   </v-app>
@@ -35,25 +11,19 @@
 
 export default {
   name: 'App',
-
-  data: () => ({
-    showDrawer: false,
-  }),
-
-  methods: {
-    csl(...e) {
-      console.log('click:', ...e);
-    },
-  },
 };
 </script>
 
 <style>
 .hide {
-  z-index: 8;
+  z-index: -1;
   position: absolute;
   left: 0;
   right: 0;
-  height: 30vh;
+  height: 100vh;
+  background-image: url(https://static.v2ex.com/tiles/cake.jpg), url(https://v2ex.com/static/img/shadow.png);
+  background-repeat: repeat, repeat-x;
+  box-shadow: inset 0 0 0 100vh rgba(255, 255, 255, 0.28);
+  filter: blur(2px);
 }
 </style>
