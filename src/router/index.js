@@ -19,6 +19,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
+    path: '/scanqrcode',
+    name: 'scanqrcode',
+    icon: 'mdi-data-matrix-scan',
+    component: () => import(/* webpackChunkName: "scanqrcode" */ '../views/HelloWDNMD.vue')
+  },
+  {
     path: '/wdnmd',
     name: 'hellowdnmd',
     component: () => import(/* webpackChunkName: "hellowdnmd" */ '../views/HelloWDNMD.vue')

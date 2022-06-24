@@ -9,6 +9,9 @@
         " class="pa-2 mt-8" height="50px" width="calc(30%)">
           <router-link :to="value.path">
             <button style="width: 100%; height: 100%;">
+              <v-icon>
+                {{ value.icon || "😅" }}
+              </v-icon>
               {{ value.name }}
             </button>
           </router-link>
