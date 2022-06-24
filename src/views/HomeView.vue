@@ -26,10 +26,10 @@
         <v-icon>mdi-heart</v-icon>
       </v-btn>
 
-      <v-btn color="deep-purple accent-4" text>
-        <span>Nearby</span>
+      <v-btn color="deep-purple accent-4" text @click="toggleMode()">
+        <span>{{ this.$vuetify.theme.dark ? '黑暗主题' : '浅色主题' }}</span>
 
-        <v-icon>mdi-map-marker</v-icon>
+        <v-icon>mdi-theme-light-dark</v-icon>
       </v-btn>
     </v-bottom-navigation>
   </div>
@@ -47,5 +47,45 @@ export default {
     routes,
     selectedItem: 1,
   }),
+
+
+
+  methods: {
+    csl(...a) {
+      console.log(...a);
+    },
+    toggleMode() {
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+    },
+    initDarkMode() {
+      let media = window.matchMedia('(prefers-color-scheme: dark)');
+
+      if (media.matches) {
+        this.$vuetify.theme.dark = true;
+      } else {
+        this.$vuetify.theme.dark = false;
+      }
+
+      let callback = (e) => {
+        let prefersDarkMode = e.matches;
+        if (prefersDarkMode) {
+          this.$vuetify.theme.dark = true;
+        } else {
+          this.$vuetify.theme.dark = false;
+        }
+      };
+
+      if (typeof media.addEventListener === 'function') {
+        media.addEventListener('change', callback);
+      } else if (typeof media.addListener === 'function') {
+        media.addListener(callback);
+      }
+    },
+  },
+
+  mounted() {
+    this.initDarkMode()
+
+  },
 }
 </script>
