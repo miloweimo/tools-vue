@@ -3,15 +3,13 @@
     <div class="hide" @dblclick.stop="showDrawer = !showDrawer"></div>
 
     <v-card v-if="showDrawer" scrollable class="d-flex flex-wrap justify-space-around pa-2">
-      <template v-for="n in 21">
-        <v-card :key="n" class="pa-2 ma-2" height="13vh" width="calc(30%)">
-          Column{{ n }}
-        </v-card>
-      </template>
+      <v-card v-for="n in 21" :key="n" class="pa-2 ma-2" height="13vh" width="calc(30%)">
+        Column{{ n }}
+      </v-card>
     </v-card>
 
     <!-- 滚动失效 -->
-<!-- 
+    <!-- 
     <div v-if="showDrawer">
       <v-navigation-drawer class="ma-8 pa-1 rounded" v-model="showDrawer" floating width="100% - ma-8"
         height="100% - ma-8">
