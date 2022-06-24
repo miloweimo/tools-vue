@@ -2,13 +2,15 @@
   <div>
     <div class="d-flex flex-wrap justify-space-around">
 
-      <v-card v-for="(value, key ) in routes" :key="key" class="pa-2 mt-8" height="50px" width="calc(30%)">
-        <router-link :to="value.path">
-          <button style="width: 100%; height: 100%;">
-            {{ value.name }}
-          </button>
-        </router-link>
-      </v-card>
+      <template v-for="(value, key ) in routes">
+        <v-card :key="key" v-if="key !== 0" class="pa-2 mt-8" height="50px" width="calc(30%)">
+          <router-link :to="value.path">
+            <button style="width: 100%; height: 100%;">
+              {{ value.name }}
+            </button>
+          </router-link>
+        </v-card>
+      </template>
 
     </div>
     <v-bottom-navigation absolute horizontal style="position: fixed ;left: 0; bottom: 0;">
@@ -38,7 +40,6 @@ import { routes } from '../router'
 
 export default {
   name: 'HomeView',
-
   components: {
   },
 
