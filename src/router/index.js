@@ -22,7 +22,17 @@ const routes = [
     path: '/wdnmd',
     name: 'hellowdnmd',
     component: () => import(/* webpackChunkName: "hellowdnmd" */ '../views/HelloWDNMD.vue')
-  }
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: () => import(/* webpackChunkName: "404" */ '../views/404.vue')
+  },
+  {
+    path: '*',
+    name: 'sb404',
+    redirect: '/404',
+  },
 ]
 
 const router = new VueRouter({

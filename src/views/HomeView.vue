@@ -3,7 +3,10 @@
     <div class="d-flex flex-wrap justify-space-around">
 
       <template v-for="(value, key ) in routes">
-        <v-card :key="key" v-if="key !== 0" class="pa-2 mt-8" height="50px" width="calc(30%)">
+        <v-card :key="key" v-if="key !== 0
+          && value.path !== '*'
+          && value.path !== '/404'
+        " class="pa-2 mt-8" height="50px" width="calc(30%)">
           <router-link :to="value.path">
             <button style="width: 100%; height: 100%;">
               {{ value.name }}
