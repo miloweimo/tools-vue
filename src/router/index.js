@@ -19,6 +19,13 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
+    path: '/policelight',
+    name: 'policelight',
+    text: '假警灯',
+    icon: '🚨',
+    component: () => import(/* webpackChunkName: "policelight" */ '../views/PoliceLight.vue')
+  },
+  {
     path: '/scanqrcode',
     name: 'scanqrcode',
     text: '扫描二维码',

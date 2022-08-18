@@ -8,6 +8,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "bdghpage": "npm run build && cd dist && pwd && cp -r ./ ../../utilities && pwd && echo 'done@@!'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "main": "index.js",

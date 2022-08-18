@@ -59,8 +59,6 @@ export default {
     selectedItem: 1,
   }),
 
-
-
   methods: {
     csl(...a) {
       console.log(...a);
@@ -96,8 +94,8 @@ export default {
 
   mounted() {
     this.initDarkMode()
-
   },
+
 }
 </script>
 
