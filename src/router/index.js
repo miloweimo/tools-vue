@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import Hello from '../components/HelloPage.vue'
+import PoliceLight from '../components/PoliceLight.vue'
+import ScanQRCode from '../components/ScanQRCode.vue'
+import HelloWDNMD from '../components/HelloWDNMD.vue'
 
 Vue.use(VueRouter)
 
@@ -23,19 +27,24 @@ const routes = [
     name: 'policelight',
     text: '假警灯',
     icon: '🚨',
-    component: () => import(/* webpackChunkName: "policelight" */ '../views/PoliceLight.vue')
+    component: PoliceLight
   },
   {
     path: '/scanqrcode',
     name: 'scanqrcode',
     text: '扫描二维码',
     icon: 'mdi-data-matrix-scan',
-    component: () => import(/* webpackChunkName: "scanqrcode" */ '../views/ScanQRCode.vue')
+    component: ScanQRCode
   },
   {
     path: '/wdnmd',
     name: 'hellowdnmd',
-    component: () => import(/* webpackChunkName: "hellowdnmd" */ '../views/HelloWDNMD.vue')
+    component: HelloWDNMD
+  },
+  {
+    path: '/hello',
+    name: 'hello',
+    component: Hello
   },
   {
     path: '/404',
