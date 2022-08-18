@@ -5,6 +5,7 @@ import Hello from '../components/HelloPage.vue'
 import PoliceLight from '../components/PoliceLight.vue'
 import ScanQRCode from '../components/ScanQRCode.vue'
 import HelloWDNMD from '../components/HelloWDNMD.vue'
+import EatWhat from '../components/eatwhat/IndexPage.vue'
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,11 @@ const routes = [
     path: '/hello',
     name: 'hello',
     component: Hello
+  },
+  {
+    path: '/eatwhat',
+    name: 'eatwhat',
+    component: EatWhat
   },
   {
     path: '/404',
