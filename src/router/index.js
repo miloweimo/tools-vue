@@ -50,6 +50,7 @@ const routes = [
   {
     path: '/eatwhat',
     name: 'eatwhat',
+    icon: 'mdi-room-service',
     component: EatWhat
   },
   {
