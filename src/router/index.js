@@ -60,6 +60,42 @@ const routes = [
     component: Hello
   },
   {
+    path: '/divine',
+    name: '算命',
+    icon: '🪙',
+    component: Hello
+  },
+  {
+    path: '/divine',
+    name: 'sese 语气转换',
+    icon: '☯️🔮',
+    component: Hello
+  },
+  {
+    path: '/divine',
+    name: '占字体特效转换',
+    icon: '☯️🔮',
+    component: Hello
+  },
+  {
+    path: '/divine',
+    name: '文档排版转换',
+    icon: '☯️🔮',
+    component: Hello
+  },
+  {
+    path: '/divine',
+    name: '音效',
+    icon: '☯️🔮',
+    component: Hello
+  },
+  {
+    path: '/divine',
+    name: '相机',
+    icon: '☯️🔮',
+    component: Hello
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import(/* webpackChunkName: "404" */ '../views/404.vue')
