@@ -8,6 +8,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
+    "ghpush": "git add . && git commit -m 'auto ghpush' && git push origin master",
     "ghpage": "npm run build && cd dist && pwd && cp -r ./ ../../utilities && cd ../../utilities && pwd && git add . && git commit -m 'auto build' && git push origin ghpage && echo 'done@@!'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
