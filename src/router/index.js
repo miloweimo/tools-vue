@@ -49,9 +49,15 @@ const routes = [
   },
   {
     path: '/eatwhat',
-    name: 'eatwhat',
+    name: '今天吃什么？',
     icon: 'mdi-room-service',
     component: EatWhat
+  },
+  {
+    path: '/divine',
+    name: '占卜',
+    icon: '☯️🔮',
+    component: Hello
   },
   {
     path: '/404',
