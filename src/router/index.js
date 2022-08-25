@@ -68,7 +68,7 @@ const routes = [
   //   component: Hello
   // },
   {
-    path: '/divine',
+    path: '/sese',
     name: '色色语气转换',
     icon: '🥵',
     component: SeSe
