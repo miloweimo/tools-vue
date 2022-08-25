@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import Hello from '../components/HelloPage.vue'
+// import Hello from '../components/HelloPage.vue'
 import PoliceLight from '../components/PoliceLight.vue'
-import ScanQRCode from '../components/ScanQRCode.vue'
-import HelloWDNMD from '../components/HelloWDNMD.vue'
+// import ScanQRCode from '../components/ScanQRCode.vue'
+// import HelloWDNMD from '../components/HelloWDNMD.vue'
 import EatWhat from '../components/eatwhat/IndexPage.vue'
+// import CharacterStyle from '../components/character-style/IndexPage.vue'
+import SeSe from '../components/sese/IndexPage.vue'
 
 Vue.use(VueRouter)
 
@@ -15,14 +17,14 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
+  // {
+  //   path: '/about',
+  //   name: 'about',
+  //   // route level code-splitting
+  //   // this generates a separate chunk (about.[hash].js) for this route
+  //   // which is lazy-loaded when the route is visited.
+  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  // },
   {
     path: '/policelight',
     name: 'policelight',
@@ -30,71 +32,71 @@ const routes = [
     icon: '🚨',
     component: PoliceLight
   },
-  {
-    path: '/scanqrcode',
-    name: 'scanqrcode',
-    text: '扫描二维码',
-    icon: 'mdi-data-matrix-scan',
-    component: ScanQRCode
-  },
-  {
-    path: '/wdnmd',
-    name: 'hellowdnmd',
-    component: HelloWDNMD
-  },
-  {
-    path: '/hello',
-    name: 'hello',
-    component: Hello
-  },
+  // {
+  //   path: '/scanqrcode',
+  //   name: 'scanqrcode',
+  //   text: '扫描二维码',
+  //   icon: 'mdi-data-matrix-scan',
+  //   component: ScanQRCode
+  // },
+  // {
+  //   path: '/wdnmd',
+  //   name: 'hellowdnmd',
+  //   component: HelloWDNMD
+  // },
+  // {
+  //   path: '/hello',
+  //   name: 'hello',
+  //   component: Hello
+  // },
   {
     path: '/eatwhat',
     name: '今天吃什么？',
     icon: 'mdi-room-service',
     component: EatWhat
   },
+  // {
+  //   path: '/divine',
+  //   name: '占卜',
+  //   icon: '☯️🔮',
+  //   component: Hello
+  // },
+  // {
+  //   path: '/divine',
+  //   name: '算命',
+  //   icon: '🪙',
+  //   component: Hello
+  // },
   {
     path: '/divine',
-    name: '占卜',
-    icon: '☯️🔮',
-    component: Hello
+    name: '色色语气转换',
+    icon: '🥵',
+    component: SeSe
   },
-  {
-    path: '/divine',
-    name: '算命',
-    icon: '🪙',
-    component: Hello
-  },
-  {
-    path: '/divine',
-    name: 'sese 语气转换',
-    icon: '☯️🔮',
-    component: Hello
-  },
-  {
-    path: '/divine',
-    name: '占字体特效转换',
-    icon: '☯️🔮',
-    component: Hello
-  },
-  {
-    path: '/divine',
-    name: '文档排版转换',
-    icon: '☯️🔮',
-    component: Hello
-  },
-  {
-    path: '/divine',
-    name: '音效',
-    icon: '☯️🔮',
-    component: Hello
-  },
-  {
-    path: '/divine',
-    name: '相机',
-    icon: '☯️🔮',
-    component: Hello
-  },
+  // {
+  //   path: '/character-style',
+  //   name: '字体特效转换',
+  //   icon: 'mdi-format-font',
+  //   component: CharacterStyle
+  // },
+  // {
+  //   path: '/divine',
+  //   name: '文档排版转换',
+  //   icon: '☯️🔮',
+  //   component: Hello
+  // },
+  // {
+  //   path: '/divine',
+  //   name: '音效',
+  //   icon: '☯️🔮',
+  //   component: Hello
+  // },
+  // {
+  //   path: '/divine',
+  //   name: '相机',
+  //   icon: '☯️🔮',
+  //   component: Hello
+  // },
   {
     path: '/404',
     name: '404',
