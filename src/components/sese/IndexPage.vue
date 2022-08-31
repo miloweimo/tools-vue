@@ -93,8 +93,7 @@ export default {
       const data = await hitokotoService.get()
       .then((result) => {
         const {hitokoto, from, from_who, creator} = result
-        this.i = `${hitokoto} 
-        -- ${from|| ''} ${from_who|| ''} by ${creator|| ''}`
+        this.i = `${hitokoto} -- ${from|| ''} ${from_who|| ''}${creator ? 'by': ''}${creator|| ''}`
       })
     },
   },
