@@ -38,6 +38,8 @@
 </template>
 
 <script>
+import hitokotoService from '../../services/hitokoto'
+
 export default {
   data() {
     return {
@@ -86,9 +88,14 @@ export default {
         return `……${word}`
       }).join('')
     },
-    randomInput(){
+    async randomInput(){
       this.i = '';
-      this.$nextTick(() => this.i = '工信处女干事,每月经过下属科室都要亲口交代！24口交换机等技术性器件的安装工作。');
+      const data = await hitokotoService.get()
+      .then((result) => {
+        const {hitokoto, from, from_who, creator} = result
+        this.i = `${hitokoto} 
+        -- ${from|| ''} ${from_who|| ''} by ${creator|| ''}`
+      })
     },
   },
   watch: {
