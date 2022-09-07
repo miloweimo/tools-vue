@@ -6,22 +6,21 @@
       &nbsp;copyed!&nbsp;
     </div>
     <div style="display: flex;align-items:center;">
-      <h1>色色语气转换👅</h1>
+      <h3>语气转换👅</h3>
       <v-spacer></v-spacer>
-      <!-- <v-text-field width="100px" disabled="true"></v-text-field> -->
       <v-btn @click="randomInput">随机🎲</v-btn>
-      <v-btn @click="i += ' ';i.slice(0, -1);" color="pink">瑟瑟❤</v-btn>
+      <v-btn @click="handleTransform" color="pink">转换❤</v-btn>
     </div>
     <div style="height: calc(92%);">
       <div class="inputarea mb-2" >
         <textarea
           class="area1"
           style="display: true;"
-          :style="this.$vuetify.theme.dark ?'color: rgba(252, 252, 252, 0.999);' : ''" 
-          placeholder="用〇〇在这里输入💗"
+          :style="isDark ?'color: rgba(252, 252, 252, 0.999);' : ''" 
+          placeholder="用〇〇在这里输入"
           type="text"
           autofocus
-          v-model="i"
+          v-model="input"
         >
         </textarea>
       </div>
@@ -29,9 +28,9 @@
         <div
           class="area2"
           ref="myinput"
-          :style="this.$vuetify.theme.dark ?'color: rgba(252, 252, 252, 0.888);' : ''" 
+          :style="isDark ?'color: rgba(252, 252, 252, 0.888);' : ''" 
           @click="copy"
-        >{{ o ? o : '这里...这里要...要出来了!'}}</div>
+        >{{ o ? o : '点击转换❤这里要...要出来了!'}}</div>
       </div>
     </div>
   </div>
@@ -43,9 +42,11 @@ import hitokotoService from '../../services/hitokoto'
 export default {
   data() {
     return {
-      i: '',
+      show1: '',
+      input: '',
       o: "",
       isCopyed: false,
+      isDark: false,
     }
   },
   methods: {
@@ -61,11 +62,15 @@ export default {
     sese(string, 淫乱度 = 0.5){
       const delimiterList = [
         ',',
-        '.',
         ';',
         '，',
-        '。',
         '；',
+      ];
+      const delimiterList2 = [
+        '。',
+        '.',
+        '！',
+        '!',
       ];
       const segmenterCn = new Intl.Segmenter('cn', { granularity: 'word' });
       const segments = segmenterCn.segment(string);
@@ -77,33 +82,67 @@ export default {
         if (delimiterList.includes(word)) {
           return '……'
         }
-        if (word === '!' || word ===  '！') {
+        if (delimiterList2.includes(word)) {
           return '❤'
         }
         if (Math.random() > 0.5){
           return word[0] + "……" + word
         }else if(Math.random() < 0.5){
-          return '〇'.repeat(word.length)
+          return '〇'.repeat(word.trim().length)
+        }else if(Math.random() < 0.5){
+          return `……${word}`
         }
-        return `……${word}`
+        return word
       }).join('')
     },
     async randomInput(){
-      this.i = '';
-      const data = await hitokotoService.get()
-      .then((result) => {
-        const {hitokoto, from, from_who, creator} = result
-        this.i = `${hitokoto} -- ${from|| ''} ${from_who|| ''}${creator ? 'by': ''}${creator|| ''}`
-      })
+      this.input = '';
+      this.o = '';
+      await hitokotoService.get()
+        .then((result) => {
+          const {hitokoto, from, from_who, creator} = result
+          this.input = `${hitokoto}`
+          this.o = this.sese(this.input);
+          this.$nextTick(() => 
+            this.input = this.input + `\n${from|| ''} ${from_who|| ''}\n${creator|| ''}`
+          )
+        })
+    },
+    handleTransform(){
+      this.input += ' ';
+      this.$nextTick(() => 
+        this.input = this.input.slice(0, -1)
+      )
+      this.o = this.sese(this.input);
+    },
+    initDarkMode() {
+      let media = window.matchMedia('(prefers-color-scheme: dark)');
+
+      if (media.matches) {
+        this.$vuetify.theme.dark = true;
+      } else {
+        this.$vuetify.theme.dark = false;
+      }
+
+      let callback = (e) => {
+        let prefersDarkMode = e.matches;
+        if (prefersDarkMode) {
+          this.$vuetify.theme.dark = true;
+        } else {
+          this.$vuetify.theme.dark = false;
+        }
+      };
+
+      if (typeof media.addEventListener === 'function') {
+        media.addEventListener('change', callback);
+      } else if (typeof media.addListener === 'function') {
+        media.addListener(callback);
+      }
     },
   },
-  watch: {
-    i: {
-      handler(){
-        this.o = this.sese(this.i);
-      },
-      immediate: true,
-    },
+  created(){
+    this.initDarkMode()
+    this.isDark = this.$vuetify.theme.dark;
   },
 }
 </script>
