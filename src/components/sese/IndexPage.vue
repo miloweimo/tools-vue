@@ -46,7 +46,6 @@ export default {
       input: '',
       o: "",
       isCopyed: false,
-      isDark: false,
     }
   },
   methods: {
@@ -140,9 +139,11 @@ export default {
       }
     },
   },
-  created(){
-    this.initDarkMode()
-    this.isDark = this.$vuetify.theme.dark;
+  computed: {
+    isDark(){
+      if (!window.localStorage.getItem('isDark')) this.initDarkMode()
+      return window.localStorage.getItem('isDark') === 'true';
+    }
   },
 }
 </script>

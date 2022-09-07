@@ -96,6 +96,18 @@ export default {
     this.initDarkMode()
   },
 
+  computed: {
+    isDark(){
+      return this.$vuetify.theme.dark
+    }
+  },
+
+  watch: {
+    isDark(newVal){
+      window.localStorage.isDark = newVal
+    }
+  },
+
 }
 </script>
 
