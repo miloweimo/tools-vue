@@ -142,7 +142,8 @@ export default {
   computed: {
     isDark(){
       if (!window.localStorage.getItem('isDark')) this.initDarkMode()
-      return window.localStorage.getItem('isDark') === 'true';
+      // return window.localStorage.getItem('isDark') === 'true';
+      return this.$vuetify.theme.dark
     }
   },
 }
