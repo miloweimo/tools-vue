@@ -69,7 +69,7 @@ const routes = [
   // },
   {
     path: '/sese',
-    name: '色色语气转换',
+    name: '语气转换',
     icon: '🥵',
     component: SeSe
   },
@@ -98,6 +98,12 @@ const routes = [
   //   component: Hello
   // },
   {
+    path: '/draw',
+    name: 'draw',
+    icon: '🎨',
+    component: () => import(/* webpackChunkName: "draw" */ '../components/draw/IndexPage.vue')
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import(/* webpackChunkName: "404" */ '../views/404.vue')
@@ -113,4 +119,10 @@ const router = new VueRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  // to and from are both route objects. must call `next`.
+  console.log(to, 'to');
+  window.document.title = to.name ? to.name : 'Home';
+  next()
+})
 export { router, routes }
