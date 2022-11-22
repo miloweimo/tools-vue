@@ -109,12 +109,12 @@ const routes = [
     icon: '📆',
     component: () => import(/* webpackChunkName: "date" */ '../components/date/IndexPage.vue')
   },
-  {
-    path: '/test',
-    name: '只是测试!',
-    icon: '🧪',
-    component: () => import(/* webpackChunkName: "test" */ '../components/test/IndexPage.vue')
-  },
+  // {
+  //   path: '/test',
+  //   name: '只是测试!',
+  //   icon: '🧪',
+  //   component: () => import(/* webpackChunkName: "test" */ '../components/test/IndexPage.vue')
+  // },
   {
     path: '/404',
     name: '404',
