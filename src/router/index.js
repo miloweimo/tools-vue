@@ -8,7 +8,6 @@ import PoliceLight from '../components/PoliceLight.vue'
 import EatWhat from '../components/eatwhat/IndexPage.vue'
 // import CharacterStyle from '../components/character-style/IndexPage.vue'
 import SeSe from '../components/sese/IndexPage.vue'
-import date from '../components/date/IndexPage.vue'
 
 Vue.use(VueRouter)
 
@@ -109,6 +108,12 @@ const routes = [
     name: '日期转换!',
     icon: '📆',
     component: () => import(/* webpackChunkName: "date" */ '../components/date/IndexPage.vue')
+  },
+  {
+    path: '/test',
+    name: '只是测试!',
+    icon: '🧪',
+    component: () => import(/* webpackChunkName: "test" */ '../components/test/IndexPage.vue')
   },
   {
     path: '/404',
