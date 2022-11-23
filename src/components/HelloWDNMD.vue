@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'HelloWDNMD'
+  name: 'HelloWDNMDdasb'
 }
 </script>
 
