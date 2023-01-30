@@ -2,38 +2,49 @@
   <div id="app">
 
     <div>
-      <b>📅<i>dayjs demo</i>日期计算</b><br>
-      iso date: {{isodate}} 
+      <h4>📅<i>dayjs demo</i>日期计算</h4>
+      本地时间:<code>{{isodate}}</code>(isodate)
       <hr>
 
-      <b>通过日期获得周</b><br>
-      date: <input type="datetime-local" v-model="date" step="1">
-      当前第{{d(date).isoWeek()}}周 这年共{{d(date).endOf('year').isoWeek()}}周 {{typeof(d().isoWeek())}}
+      <b>通过日期获得iso周</b>
+      点击选择日期: <input type="datetime-local" v-model="date" step="1" style="color: red;">(date)<br>
+      *ISO周从星期一开始，周日结束<br>
+      *01 周的 ISO 8601 定义是公历年（即一月）的第一个星期四所在的一周<a href="https://en.wikipedia.org/wiki/ISO_week_date">wiki</a><br>
+      <code>dayjs(date).endOf('year').isoWeek()</code>({{typeof(d().isoWeek())}})<br>
+      <code>dayjs(date).isoWeek()</code>({{typeof(d().isoWeek())}})<br>
+      这年共<code>{{d(date).endOf('year').isoWeek()}}</code>周，当前第<code>{{d(date).isoWeek()}}</code>周<br>
+      <code>d(date).isoWeekday(1).format('YYYY年MM月DD日')</code>({{ typeof(d(date).isoWeekday(1).format('YYYY年MM月DD日')) }})<br>
+      当前周一日期 <code>{{d(date).isoWeekday(1).format('YYYY年MM月DD日')}}</code><br>
+      <code>d(date).isoWeekday(7).format('YYYYMMMDD')</code>({{ typeof(d(date).isoWeekday(7).format('YYYYMMMDD')) }})<br>
+      当前周日日期 <code>{{d(date).isoWeekday(7).format('YYYYMMMDD')}}</code>
       <br>
-      当前周周一日期 {{d(date).isoWeekday(1).format('YYYY年MM月DD日')}} 当前周周日日期 {{d(date).isoWeekday(7).format('YYYYMMMDD')}}
+      <code>d(date).startOf('month').format('YYYY年MM月DD日')</code>({{ typeof(d(date).startOf('month').format('YYYY年MM月DD日')) }})
       <br>
-      这个月第一天是 {{d(date).startOf('month').format('YYYY年MM月DD日')}}，第{{d(date).startOf('month').week()}}周。
+      <code>d(date).startOf('month').week()</code>({{ typeof(d(date).startOf('month').week()) }})
+      <br>
+      这个月第一天是 <code>{{d(date).startOf('month').format('YYYY年MM月DD日')}}</code>，第<code>{{d(date).startOf('month').week()}}</code>周。
       <br>
       <hr>
-
-      <b>通过周数获得日期</b> <input type="number" v-model="year">年 第<input type="number" v-model="weeknumber">周的<br>
+      
+      <b>通过周数获得日期</b>
+      点击选择周: <input type="number" v-model="year" style="color: red;">(year)年 第<input type="number" v-model="weeknumber" style="color: red;">(weeknumber)周的<br>
+      <code>d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber - 1).format('YYYY-MM-DD')</code>(string)<br>
       上周日是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber - 1).format('YYYY-MM-DD')}}
-      周一是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(1).isoWeek(weeknumber).format('YYYY-MM-DD')}}<br>
-      周六是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(-1).isoWeek(weeknumber).format('YYYY-MM-DD')}}
-      周日是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber).format('YYYY-MM-DD')}}
+      这周一是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(1).isoWeek(weeknumber).format('YYYY-MM-DD')}}<br>
+      这周六是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(-1).isoWeek(weeknumber).format('YYYY-MM-DD')}}
+      这周日是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber).format('YYYY-MM-DD')}}
       <br>
-      {{typeof(d().isoWeekday(1).format('YYYYMMDD'))}} <a href="https://day.js.org/docs/zh-CN/plugin/iso-week">isoWeek文档</a>
+      <a href="https://day.js.org/docs/zh-CN/plugin/iso-week">isoWeek文档</a>
       <hr>
 
-      <b>获取一个时间的开始</b>
-      <br>
-      今年一月1日上午00:00 {{d().startOf('year').format('YYYYMMDD')}}
-      <br>
-      {{typeof(d().startOf('year')).format('YYYYMMDD')}} <a href="https://day.js.org/docs/zh-CN/manipulate/start-of">Start of Time文档</a>
+      <b>获取一个时间的开始</b><br>
+      <code>d().startOf('year')</code>{{ typeof(d().startOf('year')) }}<br>
+      <code>d().startOf('year').format('YYYYMMDD')</code>{{ typeof(d().startOf('year')).format('YYYYMMDD') }}<br>
+      今年一月1日上午00:00<code>{{d().startOf('year').format('YYYYMMDD')}}</code><br>
+      <a href="https://day.js.org/docs/zh-CN/manipulate/start-of">Start of Time文档</a>
       <hr>
 
-      <hr>
-      <b>参考</b>
+      <b>其他参考</b>
       <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>
     </div>
   </div>
