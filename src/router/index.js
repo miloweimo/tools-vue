@@ -5,7 +5,7 @@ import HomeView from '../views/HomeView.vue'
 import PoliceLight from '../components/PoliceLight.vue'
 // import ScanQRCode from '../components/ScanQRCode.vue'
 // import HelloWDNMD from '../components/HelloWDNMD.vue'
-import EatWhat from '../components/eatwhat/IndexPage.vue'
+// import EatWhat from '../components/eatwhat/IndexPage.vue'
 // import CharacterStyle from '../components/character-style/IndexPage.vue'
 import SeSe from '../components/sese/IndexPage.vue'
 
@@ -49,12 +49,12 @@ const routes = [
   //   name: 'hello',
   //   component: Hello
   // },
-  {
-    path: '/eatwhat',
-    name: '今天吃什么？',
-    icon: 'mdi-room-service',
-    component: EatWhat
-  },
+  // {
+  //   path: '/eatwhat',
+  //   name: '今天吃什么？',
+  //   icon: 'mdi-room-service',
+  //   component: EatWhat
+  // },
   // {
   //   path: '/divine',
   //   name: '占卜',
@@ -99,13 +99,13 @@ const routes = [
   // },
   {
     path: '/draw',
-    name: 'draw',
+    name: '小白板',
     icon: '🎨',
     component: () => import(/* webpackChunkName: "draw" */ '../components/draw/IndexPage.vue')
   },
   {
     path: '/date',
-    name: '日期转换!',
+    name: '日期转换',
     icon: '📆',
     component: () => import(/* webpackChunkName: "date" */ '../components/date/IndexPage.vue')
   },
