@@ -109,6 +109,12 @@ const routes = [
     icon: '📆',
     component: () => import(/* webpackChunkName: "date" */ '../components/date/IndexPage.vue')
   },
+  {
+    path: '/daypick',
+    name: '日期选择器',
+    icon: '🗓',
+    component: () => import(/* webpackChunkName: "daypick" */ '../components/daypick/IndexPage.vue')
+  },
   // {
   //   path: '/test',
   //   name: '只是测试!',
