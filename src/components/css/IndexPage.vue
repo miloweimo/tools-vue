@@ -47,8 +47,16 @@
           small
           </div>
       </div>
-
     </div>
+
+    <hr>
+    三角形
+    <div class="triangle"></div>
+
+    <hr>
+    css提示框
+    <a class="tooltip" href="#">链接文字 <span>提示文字</span></a>
+
 
   </div>
 </template>
@@ -66,16 +74,29 @@ div.box {
 
 div#big{
 position:relative;
-height:480px;
+height:100px;
 border: 1px solid red;
 }
 
 div#small {
 position: absolute;
 top: 50%;
-height: 240px;
+height: 60px;
 /* 小容器高度 */
-margin-top: -120px; 
-border: 1px solid yellow;
+margin-top: -30px; 
+border: 1px solid blue;
 }
+
+.triangle {
+  border-color: transparent transparent green transparent;
+  border-style: solid;
+  border-width: 0px 30px 30px 30px;
+  height: 0px;
+  width: 0px;
+}
+
+a.tooltip {position: relative}
+a.tooltip span {display:none; padding:5px; width:200px;}
+a:hover {background:#fff;} /*background-color is a must for IE6*/
+a.tooltip:hover span{display:inline; position:absolute;}
 </style>
