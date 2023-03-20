@@ -145,7 +145,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   // to and from are both route objects. must call `next`.
-  console.log(to, 'to');
+  // console.log(to, 'to');
   window.document.title = to.name ? to.name : 'Home';
   next()
 })
