@@ -115,6 +115,12 @@ const routes = [
     icon: '🗓',
     component: () => import(/* webpackChunkName: "daypick" */ '../components/daypick/IndexPage.vue')
   },
+  {
+    path: '/css',
+    name: 'css 技巧',
+    icon: '🗺',
+    component: () => import(/* webpackChunkName: "daypick" */ '../components/daypick/IndexPage.vue')
+  },
   // {
   //   path: '/test',
   //   name: '只是测试!',
