@@ -119,7 +119,7 @@ const routes = [
     path: '/css',
     name: 'css 技巧',
     icon: '🗺',
-    component: () => import(/* webpackChunkName: "daypick" */ '../components/daypick/IndexPage.vue')
+    component: () => import(/* webpackChunkName: "css" */ '../components/css/IndexPage.vue')
   },
   // {
   //   path: '/test',
