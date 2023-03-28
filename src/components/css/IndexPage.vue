@@ -50,11 +50,11 @@
     </div>
 
     <hr>
-    三角形
+    > css三角形
     <div class="triangle"></div>
 
     <hr>
-    css提示框
+    > css提示框
     <a class="tooltip" href="#">链接文字 <span>提示文字</span></a>
 
 
