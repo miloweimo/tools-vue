@@ -1,51 +1,47 @@
 <template>
-  <div id="app">
+  <div id="date-page">
 
     <div>
-      <h4>📅<i>dayjs demo</i>日期计算</h4>
-      本地时间:<code>{{isodate}}</code>(isodate)
+      <h2>📅<a href="https://day.js.org/"><i>dayjs</i></a>日期转换demo</h2>
       <hr>
 
-      <b>通过日期获得iso周</b>
-      点击选择日期: <input type="datetime-local" v-model="date" step="1" style="color: red;">(date)<br>
-      *ISO周从星期一开始，周日结束<br>
-      *01 周的 ISO 8601 定义是公历年（即一月）的第一个星期四所在的一周<a href="https://en.wikipedia.org/wiki/ISO_week_date">wiki</a><br>
-      <code>dayjs(date).endOf('year').isoWeek()</code>({{typeof(d().isoWeek())}})<br>
-      <code>dayjs(date).isoWeek()</code>({{typeof(d().isoWeek())}})<br>
-      这年共<code>{{d(date).endOf('year').isoWeek()}}</code>周，当前第<code>{{d(date).isoWeek()}}</code>周<br>
-      <code>d(date).isoWeekday(1).format('YYYY年MM月DD日')</code>({{ typeof(d(date).isoWeekday(1).format('YYYY年MM月DD日')) }})<br>
-      当前周一日期 <code>{{d(date).isoWeekday(1).format('YYYY年MM月DD日')}}</code><br>
-      <code>d(date).isoWeekday(7).format('YYYYMMMDD')</code>({{ typeof(d(date).isoWeekday(7).format('YYYYMMMDD')) }})<br>
-      当前周日日期 <code>{{d(date).isoWeekday(7).format('YYYYMMMDD')}}</code>
+      <h3>通过日期对象Date</h3>
+      输入日期: <input type="datetime-local" v-model="date" step="1" class="string string-box"> <code class="string">{{`'${date}'`}}</code><br>
+      <h4>获得iso周数</h4>
+      这年共n周: <code>dayjs('{{ date }}').endOf('year').isoWeek()</code><br>
+      输出:<code class="number">{{dayjs(date).endOf('year').isoWeek()}}</code><br>
+      当前第n周: <code>dayjs('{{ date.substring(0, 10) }}').isoWeek()</code><br>
+      输出: <code class="number">{{dayjs(date.substring(0, 10)).isoWeek()}}</code><br>
+      这个月第一天周数: <code>dayjs(date).startOf('month').isoWeek()</code><br>
+      输出: <code class="number">{{dayjs(date).startOf('month').isoWeek()}}</code><br>
+      <h4>获得日期</h4>
+      当前周周一日期: <code>dayjs(date).isoWeekday(1)</code><br>
+      输出: <code class="string">'{{dayjs(date).isoWeekday(1)}}'</code><br>
+      当前周周日日期YYYY-MM-DD: <code>dayjs(date).isoWeekday(7).format('YYYY-MM-DD')</code><br>
+      输出: <code class="string">'{{dayjs(date).isoWeekday(7).format('YYYY-MM-DD')}}'</code><br>
+      这年一月一日上午00:00: <code>dayjs(date).startOf('year').format('YYYY-MM-DD HH:mm:ss')</code><br>
+      输出: <code class="string">'{{dayjs(date).startOf('year').format('YYYY-MM-DD HH:mm:ss')}}'</code><br>
       <br>
-      <code>d(date).startOf('month').format('YYYY年MM月DD日')</code>({{ typeof(d(date).startOf('month').format('YYYY年MM月DD日')) }})
+
+      <h3>通过年份和周数</h3>
+      <h4>获得日期</h4>
+      输入年和周: <input type="number" v-model="year" class="number number-box" style="width: 4.5rem;"> <input type="number" v-model="weeknumber" class="number number-box" style="width: 4.5rem;"><br>
+      这周一日期YYYY-MM-DD: <code>dayjs(`${String(year)}-01-19`, 'YYYY-MM-DD').isoWeekday(1).isoWeek(weeknumber).format('YYYY-MM-DD')</code><br>
+      输出: <code class="string">'{{dayjs(`${String(year)}-01-19`, 'YYYY-MM-DD').isoWeekday(1).isoWeek(weeknumber).format('YYYY-MM-DD')}}'</code><br>
+      这周六日期YYYY-MM-DD: <code>dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(-1).isoWeek(weeknumber).format('YYYY-MM-DD')</code><br>
+      输出: <code class="string">'{{dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(-1).isoWeek(weeknumber).format('YYYY-MM-DD')}}'</code><br>
+      这周日日期YYYY-MM-DD: <code>dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber).format('YYYY-MM-DD')</code><br>
+      输出: <code class="string">'{{dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber).format('YYYY-MM-DD')}}'</code><br>
+      上周日日期YYYY-MM-DD: <code>dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber - 1).format('YYYY-MM-DD')</code><br>
+      输出: <code class="string">'{{dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber - 1).format('YYYY-MM-DD')}}'</code><br>
       <br>
-      <code>d(date).startOf('month').week()</code>({{ typeof(d(date).startOf('month').week()) }})
-      <br>
-      这个月第一天是 <code>{{d(date).startOf('month').format('YYYY年MM月DD日')}}</code>，第<code>{{d(date).startOf('month').week()}}</code>周。
-      <br>
-      <hr>
-      
-      <b>通过周数获得日期</b>
-      点击选择周: <input type="number" v-model="year" style="color: red;">(year)年 第<input type="number" v-model="weeknumber" style="color: red;">(weeknumber)周的<br>
-      <code>d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber - 1).format('YYYY-MM-DD')</code>(string)<br>
-      上周日是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber - 1).format('YYYY-MM-DD')}}
-      这周一是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(1).isoWeek(weeknumber).format('YYYY-MM-DD')}}<br>
-      这周六是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(-1).isoWeek(weeknumber).format('YYYY-MM-DD')}}
-      这周日是{{d(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber).format('YYYY-MM-DD')}}
-      <br>
-      <a href="https://day.js.org/docs/zh-CN/plugin/iso-week">isoWeek文档</a>
       <hr>
 
-      <b>获取一个时间的开始</b><br>
-      <code>d().startOf('year')</code>{{ typeof(d().startOf('year')) }}<br>
-      <code>d().startOf('year').format('YYYYMMDD')</code>{{ typeof(d().startOf('year')).format('YYYYMMDD') }}<br>
-      今年一月1日上午00:00<code>{{d().startOf('year').format('YYYYMMDD')}}</code><br>
+      <h3>其他参考</h3>
+      ISO周 从星期一开始,周日结束<br>
+      01 周的 <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> 定义是公历年（即一月）的第一个星期四所在的一周<a href="https://en.wikipedia.org/wiki/ISO_week_date">wiki</a><br>
+      <a href="https://dayjs.gitee.io/zh-CN/">Day.js 中文文档</a><br>
       <a href="https://day.js.org/docs/zh-CN/manipulate/start-of">Start of Time文档</a>
-      <hr>
-
-      <b>其他参考</b>
-      <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>
     </div>
   </div>
 </template>
@@ -63,7 +59,7 @@ export default {
   },
   data() {
     return {
-      d: dayjs,
+      dayjs,
       isodate: '',
       date: '2077-01-01',
       datenumber: 0,
@@ -72,28 +68,36 @@ export default {
     }
   },
   mounted() {
-    this.datenumber = Number(this.d().format('YYYYMMDD'));
+    this.datenumber = Number(this.dayjs().format('YYYYMMDD'));
     // dayjs.tz.setDefault("Asia/Shanghai");
-    this.date = this.d().format().substring(0, 19);
-    this.isodate = this.d().format();
-    this.weeknumber = this.d(this.date).isoWeek();
-    this.year = Number(this.d().format('YYYY'));
+    this.date = this.dayjs().format().substring(0, 19);
+    this.isodate = this.dayjs().format();
+    this.weeknumber = this.dayjs(this.date).isoWeek();
+    this.year = Number(this.dayjs().format('YYYY'));
     setInterval(() => {
-      this.isodate = this.d().format();
+      this.isodate = this.dayjs().format();
     },1000)
   },  
 }
 
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: justify;
-  color: #2c3e50;
-  margin-top: 10px;
+<style scoped>
+.number {
+  color: blue !important;
 }
 
+.string {
+  color: tomato !important;
+}
+
+.number-box {
+  border: 1px solid blue;
+  border-radius: 0.3rem;
+}
+
+.string-box {
+  border: 1px solid tomato;
+  border-radius: 0.3rem;
+}
 </style>
