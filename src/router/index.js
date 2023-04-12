@@ -128,6 +128,12 @@ const routes = [
   //   component: () => import(/* webpackChunkName: "test" */ '../components/test/IndexPage.vue')
   // },
   {
+    path: '/food',
+    name: '好吃吃',
+    icon: '🧾',
+    component: () => import(/* webpackChunkName: "StoreFood" */ '../modules/store-food/StoreFood.vue')
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import(/* webpackChunkName: "404" */ '../views/404.vue')
