@@ -129,8 +129,8 @@ const routes = [
   // },
   {
     path: '/food',
-    name: '好吃吃',
-    icon: '🧾',
+    name: '吃零食',
+    icon: '🍫',
     component: () => import(/* webpackChunkName: "StoreFood" */ '../modules/store-food/StoreFood.vue')
   },
   {
