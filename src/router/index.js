@@ -134,6 +134,12 @@ const routes = [
     component: () => import(/* webpackChunkName: "StoreFood" */ '../modules/store-food/StoreFood.vue')
   },
   {
+    path: '/camera',
+    name: '相机',
+    icon: '📷',
+    component: () => import(/* webpackChunkName: "Camera" */ '../modules/camera/CameraPage.vue')
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import(/* webpackChunkName: "404" */ '../views/404.vue')
