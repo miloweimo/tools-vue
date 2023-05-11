@@ -134,11 +134,17 @@ const routes = [
     component: () => import(/* webpackChunkName: "StoreFood" */ '../modules/store-food/StoreFood.vue')
   },
   {
-    path: '/camera',
-    name: '相机',
-    icon: '📷',
-    component: () => import(/* webpackChunkName: "Camera" */ '../modules/camera/CameraPage.vue')
+    path: '/mirror',
+    name: '镜子',
+    icon: '🪞',
+    component: () => import(/* webpackChunkName: "Mirror" */ '../modules/mirror/MirrorIndex.vue')
   },
+  // {
+  //   path: '/camera',
+  //   name: '相机',
+  //   icon: '📷',
+  //   component: () => import(/* webpackChunkName: "Camera" */ '../modules/camera/CameraPage.vue')
+  // },
   {
     path: '/404',
     name: '404',
