@@ -139,6 +139,12 @@ const routes = [
     icon: '🪞',
     component: () => import(/* webpackChunkName: "Mirror" */ '../modules/mirror/MirrorIndex.vue')
   },
+  {
+    path: '/css-center',
+    name: '居中',
+    icon: '🧱',
+    component: () => import(/* webpackChunkName: "CssCenter" */ '../modules/css-center/CssCenterIndex.vue')
+  },
   // {
   //   path: '/camera',
   //   name: '相机',
