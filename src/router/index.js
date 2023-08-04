@@ -113,7 +113,7 @@ const routes = [
     path: '/pdf',
     name: 'PDF',
     icon: '📄',
-    component: () => import(/* webpackChunkName: "date" */ '../modules/pdfh5/PdfIndex.vue')
+    component: () => import(/* webpackChunkName: "pdf" */ '../modules/pdfdemo/PdfIndex.vue')
   },
   // {
   //   path: '/daypick',
