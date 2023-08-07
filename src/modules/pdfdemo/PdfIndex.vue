@@ -2,15 +2,19 @@
   <div>
     <h1>硬怼pdf.js</h1>
     <canvas
+      v-show="false"
       id="the-canvas"
       style="border: 1px dashed;"
     />
+    <hr>
+    <PdfobjectDemo />
   </div>
 </template>
 
 <script>
 import * as pdfjsLib from 'pdfjs-dist'
 import "pdfjs-dist/web/pdf_viewer.css";
+import PdfobjectDemo from './PdfobjectDemo.vue'
 
 pdfjsLib.GlobalWorkerOptions.workerPort = new Worker(new URL('pdfjs-dist/build/pdf.worker.js', import.meta.url))
 
@@ -18,6 +22,9 @@ pdfjsLib.GlobalWorkerOptions.workerPort = new Worker(new URL('pdfjs-dist/build/p
 const url = './3.pdf';
 
 export default {
+  components: {
+    PdfobjectDemo,
+  },
   mounted() {
     const loadingTask = pdfjsLib.getDocument(url);
     (async () => {

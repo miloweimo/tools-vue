@@ -18,6 +18,7 @@
     "core-js": "^3.8.3",
     "dayjs": "^1.11.6",
     "pdfjs-dist": "^3.9.179",
+    "pdfobject": "^2.2.12",
     "vue": "^2.6.14",
     "vue-router": "^3.5.1",
     "vuetify": "^2.6.0"
