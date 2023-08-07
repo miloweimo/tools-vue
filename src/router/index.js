@@ -1,13 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-// import Hello from '../components/HelloPage.vue'
-import PoliceLight from '../components/PoliceLight.vue'
-// import ScanQRCode from '../components/ScanQRCode.vue'
-// import HelloWDNMD from '../components/HelloWDNMD.vue'
-// import EatWhat from '../components/eatwhat/IndexPage.vue'
-// import CharacterStyle from '../components/character-style/IndexPage.vue'
-import SeSe from '../components/sese/IndexPage.vue'
 
 Vue.use(VueRouter)
 
@@ -17,20 +10,21 @@ const routes = [
     name: 'home',
     component: HomeView
   },
-  // {
-  //   path: '/about',
-  //   name: 'about',
-  //   // route level code-splitting
-  //   // this generates a separate chunk (about.[hash].js) for this route
-  //   // which is lazy-loaded when the route is visited.
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  // },
+  {
+    path: '/about',
+    name: 'about',
+    isShowIcon: false,
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+  },
   {
     path: '/policelight',
     name: 'policelight',
     text: '假警灯',
     icon: '🚨',
-    component: PoliceLight
+    component: () => import(/* webpackChunkName: "policelight" */ '../modules/police-light/PoliceLightIndex.vue')
   },
   // {
   //   path: '/scanqrcode',
@@ -71,7 +65,7 @@ const routes = [
     path: '/sese',
     name: '语气转换',
     icon: '🥵',
-    component: SeSe
+    component: () => import(/* webpackChunkName: "sese" */ '../modules/sese/SeseIndex.vue')
   },
   // {
   //   path: '/character-style',
