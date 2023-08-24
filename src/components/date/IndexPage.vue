@@ -1,39 +1,53 @@
 <template>
   <div id="date-page">
-
     <div>
       <h2>📅<a href="https://day.js.org/"><i>dayjs</i></a>日期转换demo</h2>
       <hr>
 
       <h3>通过日期对象Date</h3>
-      输入日期: <input type="datetime-local" v-model="date" step="1" class="string string-box"> <code class="string">{{`'${date}'`}}</code><br>
+      输入日期: <input
+        v-model="date"
+        type="datetime-local"
+        step="1"
+        class="string string-box"
+      > <code class="string">{{ `'${date}'` }}</code><br>
       <h4>获得iso周数</h4>
       这年共n周: <code>dayjs('{{ date }}').endOf('year').isoWeek()</code><br>
-      输出:<code class="number">{{dayjs(date).endOf('year').isoWeek()}}</code><br>
+      输出:<code class="number">{{ dayjs(date).endOf('year').isoWeek() }}</code><br>
       当前第n周: <code>dayjs('{{ date.substring(0, 10) }}').isoWeek()</code><br>
-      输出: <code class="number">{{dayjs(date.substring(0, 10)).isoWeek()}}</code><br>
+      输出: <code class="number">{{ dayjs(date.substring(0, 10)).isoWeek() }}</code><br>
       这个月第一天周数: <code>dayjs(date).startOf('month').isoWeek()</code><br>
-      输出: <code class="number">{{dayjs(date).startOf('month').isoWeek()}}</code><br>
+      输出: <code class="number">{{ dayjs(date).startOf('month').isoWeek() }}</code><br>
       <h4>获得日期</h4>
       当前周周一日期: <code>dayjs(date).isoWeekday(1)</code><br>
-      输出: <code class="string">'{{dayjs(date).isoWeekday(1)}}'</code><br>
+      输出: <code class="string">'{{ dayjs(date).isoWeekday(1) }}'</code><br>
       当前周周日日期YYYY-MM-DD: <code>dayjs(date).isoWeekday(7).format('YYYY-MM-DD')</code><br>
-      输出: <code class="string">'{{dayjs(date).isoWeekday(7).format('YYYY-MM-DD')}}'</code><br>
+      输出: <code class="string">'{{ dayjs(date).isoWeekday(7).format('YYYY-MM-DD') }}'</code><br>
       这年一月一日上午00:00: <code>dayjs(date).startOf('year').format('YYYY-MM-DD HH:mm:ss')</code><br>
-      输出: <code class="string">'{{dayjs(date).startOf('year').format('YYYY-MM-DD HH:mm:ss')}}'</code><br>
+      输出: <code class="string">'{{ dayjs(date).startOf('year').format('YYYY-MM-DD HH:mm:ss') }}'</code><br>
       <br>
 
       <h3>通过年份和周数</h3>
       <h4>获得日期</h4>
-      输入年和周: <input type="number" v-model="year" class="number number-box" style="width: 4.5rem;"> <input type="number" v-model="weeknumber" class="number number-box" style="width: 4.5rem;"><br>
+      输入年和周: <input
+        v-model="year"
+        type="number"
+        class="number number-box"
+        style="width: 4.5rem;"
+      > <input
+        v-model="weeknumber"
+        type="number"
+        class="number number-box"
+        style="width: 4.5rem;"
+      ><br>
       这周一日期YYYY-MM-DD: <code>dayjs(`${String(year)}-01-19`, 'YYYY-MM-DD').isoWeekday(1).isoWeek(weeknumber).format('YYYY-MM-DD')</code><br>
-      输出: <code class="string">'{{dayjs(`${String(year)}-01-19`, 'YYYY-MM-DD').isoWeekday(1).isoWeek(weeknumber).format('YYYY-MM-DD')}}'</code><br>
+      输出: <code class="string">'{{ dayjs(`${String(year)}-01-19`, 'YYYY-MM-DD').isoWeekday(1).isoWeek(weeknumber).format('YYYY-MM-DD') }}'</code><br>
       这周六日期YYYY-MM-DD: <code>dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(-1).isoWeek(weeknumber).format('YYYY-MM-DD')</code><br>
-      输出: <code class="string">'{{dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(-1).isoWeek(weeknumber).format('YYYY-MM-DD')}}'</code><br>
+      输出: <code class="string">'{{ dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(-1).isoWeek(weeknumber).format('YYYY-MM-DD') }}'</code><br>
       这周日日期YYYY-MM-DD: <code>dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber).format('YYYY-MM-DD')</code><br>
-      输出: <code class="string">'{{dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber).format('YYYY-MM-DD')}}'</code><br>
+      输出: <code class="string">'{{ dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber).format('YYYY-MM-DD') }}'</code><br>
       上周日日期YYYY-MM-DD: <code>dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber - 1).format('YYYY-MM-DD')</code><br>
-      输出: <code class="string">'{{dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber - 1).format('YYYY-MM-DD')}}'</code><br>
+      输出: <code class="string">'{{ dayjs(`${String(year)}-01-28`, 'YYYY-MM-DD').isoWeekday(7).isoWeek(weeknumber - 1).format('YYYY-MM-DD') }}'</code><br>
       <br>
       <hr>
 

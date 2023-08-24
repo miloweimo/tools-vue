@@ -1,7 +1,13 @@
 <template>
   <div class="scrollbar-hidden">
-    <div style="height: 50vh" :style="flag ? styleBlue : styleRed"></div>
-    <div style="height: 50vh" :style="!flag ? styleBlue : styleRed"></div>
+    <div
+      style="height: 50vh"
+      :style="flag ? styleBlue : styleRed"
+    />
+    <div
+      style="height: 50vh"
+      :style="!flag ? styleBlue : styleRed"
+    />
   </div>
 </template>
 

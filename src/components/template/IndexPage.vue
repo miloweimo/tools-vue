@@ -1,5 +1,9 @@
 <template>
-    <canvas id="cvs" :height="height" :width="width"></canvas>
+  <canvas
+    id="cvs"
+    :height="height"
+    :width="width"
+  />
 </template>
 
 <script>

@@ -1,7 +1,12 @@
 <template>
   <div>
     <h1>零食清单🧾</h1>
-    <ItemCard v-for="item,key in food.food" :key="key" :food="item" style="margin-bottom: 3px;"/>
+    <ItemCard
+      v-for="item,key in food.food"
+      :key="key"
+      :food="item"
+      style="margin-bottom: 3px;"
+    />
   </div>
 </template>
 

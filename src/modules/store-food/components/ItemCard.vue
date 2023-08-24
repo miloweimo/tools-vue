@@ -1,16 +1,23 @@
 <template>
-    <div class="item-card">
-      <div class="item-card__img">
-        <img :src="food.picture" :alt="food.pictureAlt">
-      </div>
-      <div class="item-card__content">
-        <h3>{{food.name}}</h3>
-        <span><a :href="food.link">{{food.linkName || food.name}}</a></span>
-        <div>
-          <span class="flavor" v-for="item,key in food.flavorList" :key="key">{{item}}</span>
-        </div>
+  <div class="item-card">
+    <div class="item-card__img">
+      <img
+        :src="food.picture"
+        :alt="food.pictureAlt"
+      >
+    </div>
+    <div class="item-card__content">
+      <h3>{{ food.name }}</h3>
+      <span><a :href="food.link">{{ food.linkName || food.name }}</a></span>
+      <div>
+        <span
+          v-for="item,key in food.flavorList"
+          :key="key"
+          class="flavor"
+        >{{ item }}</span>
       </div>
     </div>
+  </div>
 </template>
 
 <script>

@@ -1,36 +1,45 @@
 <template>
   <div style="height: 99vh;">
     <div
-      class="infoarea" 
-      v-if="isCopyed">
+      v-if="isCopyed" 
+      class="infoarea"
+    >
       &nbsp;copyed!&nbsp;
     </div>
     <div style="display: flex;align-items:center;">
       <h3>语气转换👅</h3>
-      <v-spacer></v-spacer>
-      <v-btn @click="randomInput">随机🎲</v-btn>
-      <v-btn @click="handleTransform" color="pink">转换❤</v-btn>
+      <v-spacer />
+      <v-btn @click="randomInput">
+        随机🎲
+      </v-btn>
+      <v-btn
+        color="pink"
+        @click="handleTransform"
+      >
+        转换❤
+      </v-btn>
     </div>
     <div style="height: calc(92%);">
-      <div class="inputarea mb-2" >
+      <div class="inputarea mb-2">
         <textarea
+          v-model="input"
           class="area1"
-          style="display: true;"
-          :style="isDark ?'color: rgba(252, 252, 252, 0.999);' : ''" 
+          style="display: true;" 
+          :style="isDark ?'color: rgba(252, 252, 252, 0.999);' : ''"
           placeholder="用〇〇在这里输入"
           type="text"
           autofocus
-          v-model="input"
-        >
-        </textarea>
+        />
       </div>
       <div class="inputarea">
         <div
-          class="area2"
           ref="myinput"
+          class="area2"
           :style="isDark ?'color: rgba(252, 252, 252, 0.888);' : ''" 
           @click="copy"
-        >{{ o ? o : '点击转换❤这里要...要出来了!'}}</div>
+        >
+          {{ o ? o : '点击转换❤这里要...要出来了!' }}
+        </div>
       </div>
     </div>
   </div>
@@ -46,6 +55,13 @@ export default {
       input: '',
       o: "",
       isCopyed: false,
+    }
+  },
+  computed: {
+    isDark(){
+      if (!window.localStorage.getItem('isDark')) this.initDarkMode()
+      // return window.localStorage.getItem('isDark') === 'true';
+      return this.$vuetify.theme.dark
     }
   },
   methods: {
@@ -138,13 +154,6 @@ export default {
         media.addListener(callback);
       }
     },
-  },
-  computed: {
-    isDark(){
-      if (!window.localStorage.getItem('isDark')) this.initDarkMode()
-      // return window.localStorage.getItem('isDark') === 'true';
-      return this.$vuetify.theme.dark
-    }
   },
 }
 </script>

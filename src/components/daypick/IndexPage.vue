@@ -1,8 +1,17 @@
 <template>
   <div>
     choose:
-    <select v-model="selectedYear" style="border: 1px solid;">
-      <option v-for="year in availableYears" :value="year" :key="year">{{ year }}</option>
+    <select
+      v-model="selectedYear"
+      style="border: 1px solid;"
+    >
+      <option
+        v-for="year in availableYears"
+        :key="year"
+        :value="year"
+      >
+        {{ year }}
+      </option>
     </select>
   </div>
 </template>

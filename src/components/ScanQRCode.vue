@@ -1,7 +1,13 @@
 <template>
-  <div>ScanQRCode!
+  <div>
+    ScanQRCode!
     <div>
-      <input type="file" name="file" accept='image/*' capture />
+      <input
+        type="file"
+        name="file"
+        accept="image/*"
+        capture
+      >
       <button>upload image</button>
     </div>
   </div>
