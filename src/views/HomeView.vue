@@ -44,19 +44,21 @@
       <v-btn
         color="deep-purple accent-4"
         text
+        href="https://github.com/miloweimo"
       >
-        <span>Recents</span>
+        <span>Github</span>
 
-        <v-icon>mdi-history</v-icon>
+        <v-icon>mdi-github</v-icon>
       </v-btn>
 
       <v-btn
         color="deep-purple accent-4"
         text
+        href="https://miloweimo.github.io"
       >
-        <span>Favorites</span>
+        <span>Home</span>
 
-        <v-icon>mdi-heart</v-icon>
+        <v-icon>mdi-home</v-icon>
       </v-btn>
 
       <v-btn
